@@ -12,7 +12,7 @@
     String username = request.getParameter("SignUpUsername");
     String password = request.getParameter("SignUpPassword");
 
-    Boolean success = createAccount(fname, mname, lname, org, dept, postitle, deptnum, worknum, email, username, password);
+    Boolean success = createAccount(fname, mname, lname, org, dept, postitle, deptnum, worknum, email, username, password, "", "",false);
     if (success) {
         response.sendRedirect("registrationSuccessful.jsp");
     } else {
