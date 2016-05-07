@@ -6,23 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 <link href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery-2.2.0.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script>
+    $(function(){
+        $("#Navbar").load("NavBar.jsp");
+    });
+    </script>
 </head>
 <body>
 
+    <div id="Navbar"></div>
+
     <br>
     <div class="container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading" align="center">
-                <h4><b><font color="black" style="font-family: Droid-sans;">MPO Login</font> </b></h4>
-            </div>
-            <div class="panel-body"align="center">
-
-                <div class="container " style="margin-top: 10%; margin-bottom: 10%;">
-
-                    <div class="panel panel-primary" style="max-width: 35%;" align="left">
-
-                        <div class="panel-heading form-group">
-                            <b><font color="black">Login</font> </b>
+                <div class="container ">
+                    <div class="panel panel-default" style="max-width:400px;margin-left:auto; margin-right:auto;" align="left">
+                        <div class="panel-heading form-group" align="center">
+                            <b><font color="black">Log in</font> </b>
                         </div>
 
                         <div class="panel-body" >
@@ -49,9 +50,5 @@
                 </div>
 
             </div>
-            <div class="panel-footer" align="center"><font style="color: #111">Copyright @2016 Z-Technologies </font></div>
-        </div>
-    </div>
-
 </body>
 </html>

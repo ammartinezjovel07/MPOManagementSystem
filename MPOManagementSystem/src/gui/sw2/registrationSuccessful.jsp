@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Error Page</title>
+<title>Success</title>
 <link href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery-2.2.0.js"></script>
     <script src="js/jquery.validate.js"></script>
@@ -18,7 +18,7 @@
     <div id="Navbar"></div>
     <div class="container-fluid">
         <div class="panel-heading" align="center">
-            <h4><b><font color="black" style="font-family: Droid-sans;">Sorry :( Something went wrong.
+            <h4><b><font color="black" style="font-family: Droid-sans;">Thank you.  Your account request has been submitted and is pending for approval by an Administrator.  If you have any questions, please contact us at support@elpasompo.org
             <a href="login.jsp">Back to login page</a></font> </b></h4>
         </div>
     </div>

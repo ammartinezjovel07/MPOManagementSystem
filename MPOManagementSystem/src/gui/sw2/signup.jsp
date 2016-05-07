@@ -9,6 +9,7 @@
 <link href="css/signup.css" rel="stylesheet">
 <script src="js/jquery-2.2.0.js"></script>
 <script src="js/jquery.validate.js"></script>
+<script src="js/additional-methods.min.js"></script>
 <script>
 
     $(function(){
@@ -39,10 +40,22 @@
                     SignUpPosTitle:{
                         required: true,
                     },
-                    SignUpName: {
-					    required: true,
-                        minlength: 4,
-					},
+                    SignUpDeptNum:{
+                        required: true,
+                        phoneUS: true,
+                    },
+                    SignUpWorkNum:{
+                        required: true,
+                        phoneUS: true,
+                    },
+                    SignUpEmail:{
+                        required: true,
+                        email: true
+                    },
+                    SignUpUsername:{
+                        required: true,
+                        minlength: 5,
+                    },
 					SignUpPassword: {
 					    required: true,
 					    minlength: 5,
@@ -69,9 +82,18 @@
 					SignUpOrg: "Please enter organization name",
                     SignUpDept: "Please enter organization name",
                     SignUpPosTitle: "Please enter organization name",
-                    SignUpName: {
-                        required: "Please enter full name",
-                        minlength: "Must be more than 4 characters"
+                    SignUpDeptNum: {
+                        required: "Please enter department phone number",
+                    },
+                    SignUpWorkNum:{
+                        required: "Please enter work phone number",
+                    },
+                    SignUpEmail:{
+                        required: "Please enter email",
+                    },
+                    SignUpUsername:{
+                        required: "Please enter username",
+                        minlength: "Must be more than 5 characters"
                     },
 					SignUpPassword: {
                         required: "Please enter password name",
@@ -102,7 +124,7 @@
 
                         <div class="panel-body" >
 
-                        <form action="SignupServlet" class="SignUp" method="post" novalidate="novalidate" >
+                        <form action="registration.jsp" class="SignUp" method="post" novalidate="novalidate" >
                             <div class="form-group">
                                 <input
                                     type="text" class="form-control" name="SignUpFirstName" id="SignUpUserName"
@@ -137,6 +159,30 @@
                                  <input
                                     type="text" class="form-control" name="SignUpPosTitle" id="SignUpPosTitle"
                                     placeholder="Enter Position title" required="required">
+
+                            </div>
+                            <div class="form-group">
+                                 <input
+                                    type="text" class="form-control" name="SignUpDeptNum" id="SignUpDeptNum"
+                                    placeholder="Enter Department contact number" required="required">
+
+                            </div>
+                            <div class="form-group">
+                                 <input
+                                    type="text" class="form-control" name="SignUpWorkNum" id="SignUpWorkNum"
+                                    placeholder="Enter Work contact number" required="required">
+
+                            </div>
+                            <div class="form-group">
+                                 <input
+                                    type="text" class="form-control" name="SignUpEmail" id="SignUpEmail"
+                                    placeholder="Enter Email" required="required">
+
+                            </div>
+                            <div class="form-group">
+                                 <input
+                                    type="text" class="form-control" name="SignUpUsername" id="SignUpUsername"
+                                    placeholder="Enter Username" required="required">
 
                             </div>
                             <div class="form-group">
