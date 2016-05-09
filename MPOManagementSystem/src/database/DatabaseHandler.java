@@ -52,14 +52,16 @@ public class DatabaseHandler {
 		ResultSet rs = null;
 		String passwordRetrieved = "";
 		try {
-			conn = DriverManager.getConnection(db_name, username, password);
+			conn = DriverManager.getConnection(db_name, db_username, db_password);
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
-			conn.close();
+			
 			while(rs.next())
 			{
 				passwordRetrieved = rs.getString("password");
+				//System.out.println("password: "+passwordRetrieved);
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,7 +79,7 @@ public class DatabaseHandler {
 		ResultSet resultSet = null;
 
 		try {
-			connection = DriverManager.getConnection(db_name, username, db_password);
+			connection = DriverManager.getConnection(db_name, db_username, db_password);
 			statement = connection.prepareStatement(query);
 			resultSet = statement.executeQuery();
 			
@@ -101,6 +103,7 @@ public class DatabaseHandler {
 				Account accountToReturn = new Account(firstName,middleInitialReal,lastName,
 						organizationName, departmentName,positionTitle, departmentContactName,
 						workContactName,email,usernameAc,password,userType,isApproved);
+
 				return accountToReturn;
 				
 			}
@@ -133,7 +136,20 @@ public class DatabaseHandler {
 		return listToProject(result);
 	}
 
-	public ArrayList<Project> retrieveMTP(){return null;}
+	public ArrayList<Project> retrieveMTP(int year){
+		List result = null;
+		ReportQueries rq = new ReportQueries();
+		String query = rq.getMTPQuery(year);
+		try {
+			result = connect(query);
+		} catch (SQLException e) {
+			System.out.printf("error");
+		}
+
+		//needs implementation
+		return listToProject(result);
+	
+	}
 
 	//Project Queries
 	public boolean createProject(Map<String, Object> projectInfo){return false;}
@@ -196,14 +212,14 @@ public class DatabaseHandler {
 
 	public ArrayList<Project> listToProject(List list)
 	{
-		ArrayList<Project> result = new ArrayList<Project>();
-		for (int i = 0; i < list.size();  i++){
-			HashMap mp = (HashMap) list.get(i);
-			Project p = new Project((String)mp.get("name"), (String)mp.get("city"), (int)mp.get("year"));	
-			result.add(p);
-		}
+//		ArrayList<Project> result = new ArrayList<Project>();
+//		for (int i = 0; i < list.size();  i++){
+//			HashMap mp = (HashMap) list.get(i);
+//			Project p = new Project((String)mp.get("name"), (String)mp.get("city"), (int)mp.get("year"));	
+//			result.add(p);
+//		}
 
-		return result;
+		return null;
 	}
 
 

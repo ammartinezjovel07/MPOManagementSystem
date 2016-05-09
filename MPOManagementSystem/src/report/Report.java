@@ -1,4 +1,7 @@
 package report;
+import java.util.ArrayList;
+import database.DatabaseHandler;
+import project.Project;
 
 public class Report
 {	
@@ -26,4 +29,14 @@ public class Report
 	String transitInformation;
 	long projectCost;
 	long projectFunding;
+
+	public ArrayList<Project> generateTIPReport(int year){
+		
+		return new DatabaseHandler().retrieveTIP(year);
+	}
+
+	public ArrayList<Project> generateMTPReport(int year){
+		return new DatabaseHandler().retrieveMTP(year);
+	}
+
 }

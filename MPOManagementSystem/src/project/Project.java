@@ -8,23 +8,23 @@ public class Project
 	
 	public Project()
 	{
-		this.projectElements = new HashMap <String, Object>();
-		
-		String projectTitle;
-		String projectID;
-		String projectDescription;
-		String Termini;
-		String Network;
-		String TotalProjectCost;
-		String Sponsor;
-		String yoe;
-		long airQualityAnalysisCO;
-		long airQualityAnalysisNOX;
-		long airQualityAnalysisVOC;
-		String area; 
-		boolean capacityProject;
-		String city;
-		String county;
+//		this.projectElements = new HashMap <String, Object>();
+//		
+//		String projectTitle;
+//		String projectID;
+//		String projectDescription;
+//		String Termini;
+//		String Network;
+//		String TotalProjectCost;
+//		String Sponsor;
+//		String yoe;
+//		long airQualityAnalysisCO;
+//		long airQualityAnalysisNOX;
+//		long airQualityAnalysisVOC;
+//		String area; 
+//		boolean capacityProject;
+//		String city;
+//		String county;
 		
 	}
 	
