@@ -20,14 +20,23 @@ public class RegularUser
 //		return null;		
 //	}
 //	
-//	public Project[] viewReport()
-//	{		
-//		return null;
-//	}
+	public Project[] viewTIPReport(int year)
+	{		
+		Report report = new Report();
+		return report.generateTipReport(year);
+
+	}
 	
-//	public Report generateReport()
-//	{
-//		
-//	}
+	public Project[] viewMTPReport(int year)
+	{		
+		Report report = new Report();
+		return report.generateTipReport(year);
+	}
+	
+	public Report generateReport(String reportType, int year)
+	{
+
+		return null;
+	}
 	
 }

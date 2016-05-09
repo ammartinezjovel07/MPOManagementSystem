@@ -70,7 +70,6 @@ public class Account
 		}
 		return null;
 	}
-
 		
 	public LinkedHashMap<String, Object> getAccountElements() {
 		return accountElements;

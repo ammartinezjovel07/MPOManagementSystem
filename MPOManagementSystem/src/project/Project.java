@@ -25,6 +25,18 @@ public class Project
 		boolean capacityProject;
 		String city;
 		String county;
+		String dotDistrict;
+		int federalFiscalYear;
+		String federalFunctionalClassification;
+		String fundProjectType;
+		String highwayRoadwayName;
+		String limitFrom;
+		String limitTo;
+		int networkYear;
+		int nuberExistingLanes;
+		long numberMiles;
+		int numberProjectedLanes;
+		
 		
 	}
 	

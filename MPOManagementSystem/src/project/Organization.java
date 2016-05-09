@@ -1,5 +1,6 @@
 package project;
 
-public class Organization {
+public class Organization
+{
 
 }
