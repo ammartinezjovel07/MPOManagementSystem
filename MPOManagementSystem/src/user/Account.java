@@ -59,18 +59,19 @@ public class Account
 		return db.approveUserAccount(username);
 	}
 	
-	public boolean verifyCredentials(String username, String password)
+	public Account verifyCredentials(String username, String password)
 	{
 		DatabaseHandler db = new DatabaseHandler();
-		return db.verifyCredentials(username,password);
+		boolean areCredentialsCorrect =  db.verifyCredentials(username,password);
+		
+		if(areCredentialsCorrect==true)
+		{
+			return db.retrieveAccount(username);
+		}
+		return null;
 	}
 
-//	public String provideUserAccount(String email, String username)
-//	{
-//		String userType = DatabaseHandler.provideUserType(email, username);
-//		return userType;
-//	}
-//		
+		
 	public LinkedHashMap<String, Object> getAccountElements() {
 		return accountElements;
 	}

@@ -64,4 +64,11 @@ public class UserQueries {
 		System.out.println(query);
 		return query;
 	}
+	
+	public static String retrieveAccountInfo(String username)
+	{
+		String query = "Select * from users where username=\""+username+"\"";
+		System.out.println(query);
+		return query;
+	}
 }
