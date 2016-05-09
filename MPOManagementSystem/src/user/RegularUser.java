@@ -9,7 +9,7 @@ public class RegularUser
 		
 	}
 	
-	public boolean verifyCredentials(String username, String password)
+	public Account verifyCredentials(String username, String password)
 	{
 		Account thisAccount = new Account();
 		return thisAccount.verifyCredentials(username, password);
