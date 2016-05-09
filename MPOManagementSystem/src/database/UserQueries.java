@@ -61,14 +61,14 @@ public class UserQueries {
 	public static String verifyCredentials(String username)
 	{
 		String query = "Select password from users where username=\""+username+"\"";
-		System.out.println(query);
+		//System.out.println(query);
 		return query;
 	}
 	
 	public static String retrieveAccountInfo(String username)
 	{
 		String query = "Select * from users where username=\""+username+"\"";
-		System.out.println(query);
+		//System.out.println(query);
 		return query;
 	}
 }

@@ -9,4 +9,9 @@ public class Report {
 	public ArrayList<Project> generateTIPReport(int year){
 		return new DatabaseHandler().retrieveTIP(year);
 	}
+	
+	public ArrayList<Project> generateMTPReport(int year){
+		return new DatabaseHandler().retrieveMTP(year);
+	}
+	
 }

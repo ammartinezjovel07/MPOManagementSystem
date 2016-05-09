@@ -9,14 +9,14 @@ public class TestMain {
 	{
 	
 		Administrator admin = new Administrator();
-		admin.createAccount("luis", 'c', "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", true);
-		admin.deleteAccount("me");
-		admin.updateAccount("lues", "email", "here");
+		//admin.createAccount("luis", 'c', "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", "luis", true);
+		//admin.deleteAccount("luis");
+		//admin.updateAccount("luis", "email", "here");
 		
 		MPOLeadUser mpoLead = new MPOLeadUser();
-		mpoLead.approveAccount("luis");
+		//mpoLead.approveAccount("luis");
 		
 		RegularUser ruser = new RegularUser();
-		ruser.verifyCredentials("luis", "not");
+		ruser.verifyCredentials("luis", "luis");
 	}
 }
