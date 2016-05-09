@@ -1,31 +1,67 @@
 package database;
 
-import java.util.HashMap;
-import java.util.Iterator;
+
+import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class UserQueries {
-
-	public static String createUserQueries(HashMap<String,Object> userInfo)
+	
+	public UserQueries()
 	{
-		String query = "Insert into users values( ";
+		
+	}
+
+	public static String createUserQueries(LinkedHashMap<String,Object> userInfo)
+	{
+		String query = "Insert into users values(";
 		String values ="";
-		Iterator entries = userInfo.entrySet().iterator();
-		while (entries.hasNext()) {
-		  Entry thisEntry = (Entry) entries.next();
-		  Object value = thisEntry.getValue();
-		  values += value+",";
+		int i = 0;
+		for (String key : userInfo.keySet()) {
+			
+			if(key.equals("isApproved"))
+			{
+				values+=userInfo.get(key).toString().toUpperCase();
+				continue;
+			}
+			else
+			{
+				values+= "\""+userInfo.get(key).toString()+"\"";
+			}			
+			if(i < userInfo.size()-1)
+			{
+				values +=",";
+				i++;
+			}
 		}
 		query += values+")";
-		System.out.print(query);
+		System.out.println(query);
 		return query;
 	}
-	public static String retrieveUserQueries(String email)
+	
+	public static String deleteUserQueries(String username)
 	{
-		String query = "SELECT * from users where email = ";
+		String query = "Delete from users where username=\""+username+"\"";
+		System.out.println(query);
 		return query;
 	}
-	public static String updateUserQueries(Map<String, String> userInfo, int id){return null;}
-	public static String deleteUserQueries(String email){return null;}
+	
+	public static String updateUserQueries(String username, String field, String value)
+	{
+		String query = "UPDATE users SET "+field+" = "+"\""+value+"\" where username = \""+username+"\"";
+		System.out.println(query);
+		return query;
 	}
+
+	public static String approveUserAccountQueries(String username) {
+		String query = "UPDATE users SET isApproved = TRUE where username = \""+username+"\"";
+		System.out.println(query);
+		return query;
+	}
+
+	public static String verifyCredentials(String username)
+	{
+		String query = "Select password from users where username=\""+username+"\"";
+		System.out.println(query);
+		return query;
+	}
+}

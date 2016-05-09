@@ -4,20 +4,18 @@ import java.sql.Connection;
 import project.*;
 import user.*;
 import java.util.*;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DatabaseHandler {
 
 	protected  String db_name = "jdbc:mysql://earth.cs.utep.edu/cs4311team1sp16";
 	protected  String username="cs4311team1sp16";
 	protected  String password="cs4311!cs4311team1sp16";
-	
-	
 	protected boolean res = false;
 	
 	public ArrayList<Project> retrieveTIP(int year)
@@ -40,14 +38,52 @@ public class DatabaseHandler {
 	public boolean createUser(Account account)
 	{
 		String query = UserQueries.createUserQueries(account.getAccountElements());
-		
-		return false;
+		return checkAffectedRows(query);
 	}
 	
+	public boolean deleteUser(String accountEmail)
+	{
+		String query = UserQueries.deleteUserQueries(accountEmail);
+		return checkAffectedRows(query);
+	}
 	
-	public Map retrieveUser(String username, String email){return null;}
-	public boolean updateUser(Map<String, Object> userInfo, String usesrname, String email){return false;}
-	public boolean deleteUser(String username, String email){return false;}
+	public boolean updateUser(String username, String field, String value)
+	{	
+		String query = UserQueries.updateUserQueries(username, field, value);
+		return checkAffectedRows(query);
+	}
+	
+	public boolean approveUserAccount(String username)
+	{
+		String query = UserQueries.approveUserAccountQueries(username);
+		return checkAffectedRows(query);
+		
+	}
+	
+	public boolean verifyCredentials(String username, String password)
+	{
+		String query = UserQueries.verifyCredentials(username);
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		String passwordRetrieved = "";
+		try {
+			conn = DriverManager.getConnection(db_name, username, password);
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			conn.close();
+			while(rs.next())
+			{
+				passwordRetrieved = rs.getString("password");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(passwordRetrieved.equals(password))
+			return true;
+		return false;
+	}
 	
 	public boolean createProject(Map<String, Object> projectInfo){return false;}
 	public Map retrieveProject(int id){return null;}
@@ -122,5 +158,20 @@ public class DatabaseHandler {
 	}
 	
 
+	private boolean checkAffectedRows(String query)
+	{
+		int rowsAffected = -1;
+		try {
+			Connection conn = DriverManager.getConnection(db_name, username, password);
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			rowsAffected = pstmt.executeUpdate(query);
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		if(rowsAffected==0)
+			return false;
+		return true;
+	}
 	
 }
