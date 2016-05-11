@@ -29,7 +29,7 @@
 
                         <div class="panel-body" >
 
-                        <form action="LoginController.jsp" method="post" >
+                        <form action="../../LoginController" method="post" >
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Name</label> <input
                                     type="text" class="form-control" name="LoginUserName" id="LoginUserName"
