@@ -15,8 +15,8 @@ public class ProjectQueries {
  * @return
  */
 	
-	
-	public String createCostQuery(LinkedHashMap elements, int p_id)
+	//create queries
+	public String createCostQuery()
 	{
 		String query = "Insert Into cost(p_id, constructionCost, constCost, contingencyCost, ftaTransferCost, "
 				+ "nonConstructionCost, changeOrderCost, preEngCost, rightofWayCost)"
@@ -155,13 +155,47 @@ public class ProjectQueries {
 	}
 
 	
-	public String updateCostQuery(){return null;}
-	public String updateFundingQuery(){return null;}
-	public String updateOrganizationQuery(){return null;}
-	public String updateFundedProjectQuery(){return null;}
-	public String updateTransitQuery(){return null;}
-	public String updateProposedProjectQuery(){return null;}
-	public String updateProposedTransitQuery(){return null;}
+	//updates
+	public String updateProjectQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE cost SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateCostQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE cost SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateFundingQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE funding SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateOrganizationQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE organization SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateFundedProjectQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE fundedProjects SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateFundedTransitQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE fundedTransit SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateProposedProjectQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE proposedProjects SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
+	public String updateProposedTransitQuery(int p_id, String field, Object value)
+	{
+		String query = "UPDATE proposedTransitProjects SET "+field+" = "+"\""+value+"\" where username = \""+p_id+"\"";
+		return query;
+	}
 	
 	
 	// Delete queries
@@ -214,7 +248,7 @@ public class ProjectQueries {
 		projectId += projectId;
 		return projectId;
 	}
-	public String updateProjectQueries(Map<String, String> projectInfo, int id){return null;}
+	
 
 }
 

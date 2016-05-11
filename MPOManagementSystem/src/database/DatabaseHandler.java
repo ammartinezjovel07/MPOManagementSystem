@@ -151,14 +151,7 @@ public class DatabaseHandler {
 	
 	}
 
-	//Project Queries
-	public boolean createProject(Map<String, Object> projectInfo){return false;}
-	public Map retrieveProject(int id){return null;}
-	public boolean updateProject(Map<String, Object> projectInfo, String username, String email){return false;}
-	public boolean deleteProject(String username, String email){return false;}
-
-	private Map toMap(ResultSet rs){return null;}
-
+	
 	private List connect(String query) throws SQLException{
 		Connection conn = null;
 		PreparedStatement  stmt = null;
@@ -239,4 +232,131 @@ public class DatabaseHandler {
 		return true;
 	}
 
+	//Project Queries
+		public boolean createProject(Map<String, Object> projectInfo){return false;}
+		
+		//update projects
+		public boolean updateProject(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateProjectQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateCost(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateCostQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateFundedProjects(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateFundedProjectQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateFundedTransit(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateFundedTransitQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateFunding(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateFundingQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateOrganization(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateOrganizationQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateProposedProjects(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateProposedProjectQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		public boolean updateProposedTransitProjects(int p_id, String field, Object value)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.updateProposedTransitQuery(p_id, field, value);
+			return checkAffectedRows(query);
+		}
+		
+		
+		//retrieve 
+		public Map retrieveProject(int p_id){return null;}
+		public Map  retrieveCost(int p_id){return null;}
+		public Map retrieveFundedProjects(int p_id){return null;}
+		public Map retrieveFundedTransit(int p_id){return null;}
+		public Map retrieveFunding(int p_id){return null;}
+		public Map retrieveOrganization(int p_id){return null;}
+		public Map retrieveProposedProjects(int p_id){return null;}
+		public Map retrieveProposedTransitProjects(int p_id){return null;}
+		
+		//delete projects
+		public boolean deleteProject(int p_id)
+		{
+			//delete all related tables
+			deleteCost(p_id);
+			deleteFundedProjects(p_id);
+			deleteFundedTransit(p_id);
+			deleteFunding(p_id);
+			deleteOrganization(p_id); 
+			deleteProposedProject(p_id);
+			deleteProposedTransitProject(p_id);
+			
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteProject(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteCost(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteCostQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteFundedProjects(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteFundedProjectQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteFundedTransit(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteFundedTransitQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteFunding(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteFundingQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteOrganization(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteOrganizationQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteProposedProject(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteProposedProjectQuery(p_id);
+			return checkAffectedRows(query);
+		}
+		public boolean deleteProposedTransitProject(int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.deleteProposedTransitQuery(p_id);
+			return checkAffectedRows(query);
+		}
+
+		private Map toMap(ResultSet rs){return null;}
+
+	
+	
 }
