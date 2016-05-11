@@ -9,11 +9,11 @@ public class Administrator extends AuthenticatedUser
 	
 	public boolean createAccount(String firstName, char middleInitial,String lastName, String organizationName,
 			String departmentName, String positionTitle, String departmentContactName, String workContactName,
-			String email, String username, String password, String reenteredPassword, String userType, boolean isApproved)
+			String email, String username, String password, String userType, boolean isApproved)
 	{
 		Account thisAccount = new Account();
-		return thisAccount.createAccount(firstName, middleInitial, lastName, organizationName, departmentName, positionTitle, 
-				departmentContactName, workContactName, email, username, password, reenteredPassword, userType, isApproved);
+		return thisAccount.createAccount(firstName,middleInitial,lastName, organizationName,departmentName,
+				positionTitle,departmentContactName,workContactName,email,username,password,userType,isApproved);
 	}
 	
 	public boolean deleteAccount(String username)

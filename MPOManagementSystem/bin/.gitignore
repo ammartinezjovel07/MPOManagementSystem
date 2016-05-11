@@ -1,8 +1,5 @@
-/Account.class
-/Administrator.class
-/AuthenticatedUser.class
-/MPOLeadUser.class
-/MPOStaff.class
-/ProjectLead.class
-/ProjectManager.class
-/RegularUser.class
+/database/
+/gui/
+/project/
+/report/
+/user/

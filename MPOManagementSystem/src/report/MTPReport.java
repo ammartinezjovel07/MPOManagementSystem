@@ -1,5 +1,6 @@
 package report;
 
-public class MTPReport {
+public class MTPReport
+{
 
 }

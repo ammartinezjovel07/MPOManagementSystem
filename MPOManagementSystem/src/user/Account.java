@@ -1,10 +1,10 @@
 package user;
 import database.DatabaseHandler;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class Account
 {
-	HashMap <String, Object> accountElements = new HashMap <String, Object>();
+	LinkedHashMap <String, Object> accountElements = new LinkedHashMap <String, Object>();
 
 	public Account ()
 	{
@@ -13,7 +13,7 @@ public class Account
 	
 	public Account (String firstName, char middleInitial,String lastName, String organizationName,
 			String departmentName, String positionTitle, String departmentContactName, String workContactName,
-			String email, String username, String password, String reenteredPassword, String userType, boolean isApproved)
+			String email, String username, String password, String userType, boolean isApproved)
 	{
 		accountElements.put("firstName", firstName);
 		accountElements.put("middleInitial", middleInitial);
@@ -26,52 +26,57 @@ public class Account
 		accountElements.put("email", email);
 		accountElements.put("username", username);
 		accountElements.put("password", password);
-		accountElements.put("reenteredPassword", reenteredPassword);
 		accountElements.put("userType", userType);
 		accountElements.put("isApproved", isApproved);
 	}
 	
-	public boolean createAccount(String firstName, char middleInitial,String lastName, String organizationName,
+	public boolean createAccount(String firstName, char middleInitial,String lastName,String organizationName,
 			String departmentName, String positionTitle, String departmentContactName, String workContactName,
-			String email, String username, String password, String reenteredPassword, String userType, boolean isApproved)
+			String email, String username, String password, String userType, boolean isApproved)
 	{
-		Account newAccount = new Account(firstName,middleInitial,lastName,organizationName,
+		Account newAccount = new Account(firstName,middleInitial,lastName, organizationName,
 				departmentName,positionTitle,departmentContactName, workContactName,
-				email, username, password,reenteredPassword,userType, isApproved);
-		return DatabaseHandler.createUser(newAccount.getAccountElements());
+				email, username, password,userType, isApproved);
+		DatabaseHandler db = new DatabaseHandler();
+		return db.createUser(newAccount);
 	}
 	
 	public boolean deleteAccount(String username)
 	{
-		return DatabaseHandler.deleteUser(username);
+		DatabaseHandler db = new DatabaseHandler();
+		return db.deleteUser(username);
 	}
 
 	public boolean updateAccount(String username, String field, String value)
 	{
-		return DatabaseHandler.updateUser(username, field, value);
-	}
-	
-	public String provideUserAccount(String email, String username)
-	{
-		String userType = DatabaseHandler.provideUserType(email, username);
-		return userType;
-	}
-	
-	public boolean verifyCredentials(String username, String password)
-	{
-		return DatabaseHandler.verifyCredentials(username,password);
+		DatabaseHandler db = new DatabaseHandler();
+		return db.updateUser(username, field, value);
 	}
 	
 	public boolean approveAccount(String username)
 	{
-		return DatabaseHandler.approveAccount(username, "isApproved", true);
+		DatabaseHandler db = new DatabaseHandler();
+		return db.approveUserAccount(username);
+	}
+	
+	public Account verifyCredentials(String username, String password)
+	{
+		DatabaseHandler db = new DatabaseHandler();
+		boolean areCredentialsCorrect =  db.verifyCredentials(username,password);
+		
+		if(areCredentialsCorrect==true)
+		{
+			return db.retrieveAccount(username);
+		}
+		return null;
 	}
 
-	public HashMap<String, Object> getAccountElements() {
+		
+	public LinkedHashMap<String, Object> getAccountElements() {
 		return accountElements;
 	}
 
-	public void setAccountElements(HashMap<String, Object> accountElements) {
+	public void setAccountElements(LinkedHashMap<String, Object> accountElements) {
 		this.accountElements = accountElements;
 	}
 
