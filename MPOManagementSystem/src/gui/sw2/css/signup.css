@@ -14,3 +14,7 @@
  body{
    background-color:white;
  }
+
+#signup, #login, #logout{
+   margin-top: 8px;
+}

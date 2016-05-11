@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MPO home</title>
 <link href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/signup.css" rel="stylesheet">
 <script src="js/jquery-2.2.0.js"></script>
   <script>
     $(function(){
-      $("#Navbar").load("NavBar.jsp"); 
+      $("#Navbar").load("NavBar.jsp");
     });
     </script>
 </head>
