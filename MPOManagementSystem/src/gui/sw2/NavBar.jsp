@@ -17,11 +17,16 @@
     <div class="col-sm-9">
       <ul class="nav navbar-nav navbar-right">
           <li><a href="HomePage.jsp">Home</a></li>
-          <li><a href="#">Projects</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">View Projects</a></li>
+            </ul>
+          </li>
           <li><a href="#">Reports</a></li>
-          <li><a href="#">Management</a></li>
-          <li><a href="#">Financials</a></li>
-          <li><a href="#">Administration</a></li>
+          <li class="disabled"><a href="#">Management</a></li>
+          <li class="disabled"><a href="#">Financials</a></li>
+          <li class="disabled"><a href="#">Administration</a></li>
           <li><a href="ContactPage.jsp">Contact us</a></li>
       </ul>
     </div>

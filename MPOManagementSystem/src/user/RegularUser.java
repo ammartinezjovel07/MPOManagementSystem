@@ -23,8 +23,7 @@ public class RegularUser
 //		return null;		
 //	}
 //	
-	public ArrayList<database.Project> viewTIPReport(int year)
-	{		
+/*	public ArrayList<database.Project> viewTIPReport(int year){	{		
 		Report report = new Report();
 		return report.generateTIPReport(year);	
 	}
@@ -35,7 +34,7 @@ public class RegularUser
 		return report.generateMTPReport(year);	
 	}
 	
-	
+*/	
 //	public Report generateReport()
 //	{
 //		

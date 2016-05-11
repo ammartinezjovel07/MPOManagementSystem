@@ -6,13 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import user.Account;
-import user.RegularUser;
+import user.*;
 
 
-/**
- * Servlet implementation class LoginController
- */
 public class LoginController extends HttpServlet {
 
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,12 +17,16 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 
     HttpSession session = request.getSession(false);
 
-    Boolean success = verifyCredentials(username, password);
-    if (success) {
+    RegularUser ru = new RegularUser();
+    Account account  = new Account();
+
+
+    account = ru.verifyCredentials(username, password);
+    if (account != null) {
         session.setAttribute("username", username);
-        response.sendRedirect("UserPage.jsp");
+        response.sendRedirect("gui/sw2/UserPage.jsp");
     }else{
-        response.sendRedirect("loginError.jsp");
+        response.sendRedirect("gui/sw2/loginError.jsp");
     }
 	}
 
