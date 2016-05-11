@@ -1,0 +1,16 @@
+#main_panel {
+ margin: 0;
+ background-image: url(../img/rainy.jpg);
+ background-size: 1260px 846px;
+ background-repeat:no-repeat;
+ display: compact;
+ font: 13px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
+ }
+
+ .panel-default > .panel-heading {
+   background-color: #c2c2d6;
+ }
+
+ body{
+   background-color:white;
+ }

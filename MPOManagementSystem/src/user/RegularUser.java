@@ -23,17 +23,20 @@ public class RegularUser
 //		return null;		
 //	}
 //	
-	public ArrayList<database.Project> viewTIPReport(int year)
-	{		
-		Report report = new Report();
-		return report.generateTIPReport(year);	
-	}
 	
-	public ArrayList<database.Project> viewMTPReport(int year)
-	{		
-		Report report = new Report();
-		return report.generateMTPReport(year);	
-	}
+//	
+//	
+//	public ArrayList<database.Project> viewTIPReport(int year)
+//	{		
+//		Report report = new Report();
+//		return report.generateTIPReport(year);	
+//	}
+//	
+//	public ArrayList<database.Project> viewMTPReport(int year)
+//	{		
+//		Report report = new Report();
+//		return report.generateMTPReport(year);	
+//	}
 	
 	
 //	public Report generateReport()

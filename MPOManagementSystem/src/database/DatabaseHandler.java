@@ -247,14 +247,14 @@ public class DatabaseHandler {
 				PreparedStatement pstmt = conn.prepareStatement(query);
 				//set values
 				pstmt.setInt(1, p_id);
-				pstmt.setInt(2, (int) costInfo.get("constructionCost"));
-				pstmt.setInt(3, (int) costInfo.get("constCost"));
-				pstmt.setInt(4, (int) costInfo.get("contingencyCost"));
-				pstmt.setInt(5, (int) costInfo.get("ftaTransferCost"));
-				pstmt.setInt(6, (int) costInfo.get("nonConstructionCost"));
-				pstmt.setInt(7, (int) costInfo.get("changeOrderCost"));
-				pstmt.setInt(8, (int) costInfo.get("preEngCost"));
-				pstmt.setInt(9, (int) costInfo.get("rightOfWayCost"));
+				pstmt.setInt(2, (Integer) costInfo.get("constructionCost"));
+				pstmt.setInt(3, (Integer)costInfo.get("constCost"));
+				pstmt.setInt(4, (Integer)costInfo.get("contingencyCost"));
+				pstmt.setInt(5, (Integer)costInfo.get("ftaTransferCost"));
+				pstmt.setInt(6, (Integer)costInfo.get("nonConstructionCost"));
+				pstmt.setInt(7, (Integer)costInfo.get("changeOrderCost"));
+				pstmt.setInt(8, (Integer)costInfo.get("preEngCost"));
+				pstmt.setInt(9, (Integer)costInfo.get("rightOfWayCost"));
 				
 				rowsAffected = pstmt.executeUpdate(query);
 				conn.close();
