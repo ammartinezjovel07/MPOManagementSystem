@@ -233,7 +233,71 @@ public class DatabaseHandler {
 	}
 
 	//Project Queries
-		public boolean createProject(Map<String, Object> projectInfo){return false;}
+		
+		//create projects
+		public boolean createProject(LinkedHashMap<String, Object> projectInfo){return false;}
+		public boolean  createCost(LinkedHashMap<String, Object> costInfo, int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.createCostQuery();
+			
+			int rowsAffected = -1;
+			try {
+				Connection conn = DriverManager.getConnection(db_name, db_username, db_password);
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				//set values
+				pstmt.setInt(1, p_id);
+				pstmt.setInt(2, (int) costInfo.get("constructionCost"));
+				pstmt.setInt(3, (int) costInfo.get("constCost"));
+				pstmt.setInt(4, (int) costInfo.get("contingencyCost"));
+				pstmt.setInt(5, (int) costInfo.get("ftaTransferCost"));
+				pstmt.setInt(6, (int) costInfo.get("nonConstructionCost"));
+				pstmt.setInt(7, (int) costInfo.get("changeOrderCost"));
+				pstmt.setInt(8, (int) costInfo.get("preEngCost"));
+				pstmt.setInt(9, (int) costInfo.get("rightOfWayCost"));
+				
+				rowsAffected = pstmt.executeUpdate(query);
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if(rowsAffected==0)
+				return false;
+			return true;
+		}
+		public boolean createFundedProjects(LinkedHashMap<String, Object> fprojectInfo, int p_id)
+		{
+			ProjectQueries p = new ProjectQueries();
+			String query = p.createFundedProjectQuery();
+			
+			int rowsAffected = -1;
+			try {
+				Connection conn = DriverManager.getConnection(db_name, db_username, db_password);
+				PreparedStatement pstmt = conn.prepareStatement(query);
+				//set values
+				pstmt.setInt(1, p_id);
+				pstmt.setString(2, (String) fprojectInfo.get("amendmentDate"));
+				pstmt.setString(3, (String) fprojectInfo.get("cnNumber"));
+				pstmt.setString(4, (String) fprojectInfo.get("csjNumber"));
+				pstmt.setString(5, (String) fprojectInfo.get("tipName"));
+				pstmt.setString(6, (String) fprojectInfo.get("tipYear"));
+				
+				
+				rowsAffected = pstmt.executeUpdate(query);
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			if(rowsAffected==0)
+				return false;
+			return true;
+		}
+		public boolean createFundedTransit(LinkedHashMap<String, Object> projectInfo, int p_id){return false;}
+		public boolean createFunding(LinkedHashMap<String, Object> projectInfo, int p_id){return false;}
+		public boolean createOrganization(LinkedHashMap<String, Object> projectInfo, int p_id){return false;}
+		public boolean createProposedProjects(LinkedHashMap<String, Object> projectInfo, int p_id){return false;}
+		public boolean createProposedTransitProjects(LinkedHashMap<String, Object> projectInfo, int p_id){return false;}
+		
 		
 		//update projects
 		public boolean updateProject(int p_id, String field, Object value)
