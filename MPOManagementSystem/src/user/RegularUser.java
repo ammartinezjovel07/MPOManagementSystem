@@ -23,8 +23,12 @@ public class RegularUser
 //		return null;		
 //	}
 //	
+<<<<<<< HEAD
 	public ArrayList<database.Project> viewTIPReport(int year)
 	{		
+=======
+/*	public ArrayList<database.Project> viewTIPReport(int year){	{		
+>>>>>>> frontend
 		Report report = new Report();
 		return report.generateTIPReport(year);	
 	}
@@ -34,8 +38,12 @@ public class RegularUser
 		Report report = new Report();
 		return report.generateMTPReport(year);	
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> frontend
 	
+*/	
 //	public Report generateReport()
 //	{
 //		

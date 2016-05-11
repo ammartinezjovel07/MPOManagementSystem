@@ -1,4 +1,4 @@
-<%@ page import ="../../user/Administrator.java" %>
+<%@ page import ="src.user.Account" %>
 <%
     String fname = request.getParameter("SignUpFirstName");
     String mname = request.getParameter("SignUpMiddleName");

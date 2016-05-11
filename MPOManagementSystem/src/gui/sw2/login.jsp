@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 <link href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
     <script src="js/jquery-2.2.0.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script>
@@ -28,7 +29,7 @@
 
                         <div class="panel-body" >
 
-                        <form action="LoginServlet" method="post" >
+                        <form action="../../LoginController" method="post" >
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Name</label> <input
                                     type="text" class="form-control" name="LoginUserName" id="LoginUserName"
