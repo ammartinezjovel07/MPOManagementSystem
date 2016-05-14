@@ -25,6 +25,11 @@ public class DatabaseHandler {
 		return checkAffectedRows(query);
 	}
 
+	public boolean createProjectTest(String one, String two, String three)
+	{
+		String query = ProjectQueries.createProjectTest(one, two, three);
+		return checkAffectedRows(query);
+	}
 	public boolean deleteUser(String accountEmail)
 	{
 		String query = UserQueries.deleteUserQueries(accountEmail);
