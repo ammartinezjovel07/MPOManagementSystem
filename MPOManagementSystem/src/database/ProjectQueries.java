@@ -11,7 +11,7 @@ public class ProjectQueries {
 
 	public static String createProjectTest(String one, String two, String three)
 	{
-		String query = "Insert into projectsTest values("+"\""+one+"\""+"\""+two+"\""+"\""+three+"\");";
+		String query = "Insert into projectsTest values("+"\""+one+"\","+"\""+two+"\","+"\""+three+"\");";
 		System.out.println(query);
 		return query;
 	}

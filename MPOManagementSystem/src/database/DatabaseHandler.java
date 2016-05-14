@@ -232,11 +232,15 @@ public class DatabaseHandler {
 	{
 		int rowsAffected = -1;
 		try {
+			Class.forName("com.mysql.jbdc.Driver");
 			Connection conn = DriverManager.getConnection(db_name, db_username, db_password);
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			rowsAffected = pstmt.executeUpdate(query);
 			conn.close();
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(rowsAffected==0)
